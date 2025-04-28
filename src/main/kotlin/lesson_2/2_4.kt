@@ -4,15 +4,11 @@ fun main() {
 
     val crystal = 7
     val iron = 11
+    val buffSource: Float = 20 / 100f
+    val prefix = "Бафф ресурса"
 
-    val crystalBuff = buff(crystal)
-    val ironBuff = buff(iron)
-
-    println(crystalBuff)
-    println(ironBuff)
+    println("$prefix crystal = ${(crystal * buffSource).toInt()}")
+    println("$prefix iron = ${(iron * buffSource).toInt()}")
 
 }
 
-fun buff (source: Int): Int {
-    return source * 20 / 100
-}
