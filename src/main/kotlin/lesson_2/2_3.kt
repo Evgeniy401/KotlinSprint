@@ -6,12 +6,11 @@ fun main() {
     val checkOutMinute = 39
     val travelTimeInMinutes = 457
 
-    val valueTravelHours = travelTimeInMinutes / ONE_HOUR
-    val remainingMinutes = travelTimeInMinutes % ONE_HOUR
-    val arrivalMinute = (checkOutMinute + remainingMinutes) % ONE_HOUR
-    val arrivalHour = checkOutHour + valueTravelHours + (checkOutMinute + remainingMinutes) / ONE_HOUR
+    val generalValueMinutes = checkOutMinute + travelTimeInMinutes
+    val arrivalHour = generalValueMinutes / ONE_HOUR + checkOutHour
+    val arrivalMinute = generalValueMinutes % ONE_HOUR
 
-    println("Время пррибытия - $arrivalHour:$arrivalMinute")
+    println("Время прибытия: %02d:%02d".format(arrivalHour % 24, arrivalMinute))
 
 }
 
