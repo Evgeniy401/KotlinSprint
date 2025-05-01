@@ -15,12 +15,18 @@ fun main() {
     val numberBoxesWithProvisions: Int = readln().toInt()
 
     println(
-        if (!caseDamage && crewComposition <= 70 && crewComposition >= 55 && numberBoxesWithProvisions > 50) {
+        if (!caseDamage && crewComposition <= recommendedCrewComposition && crewComposition >= minimalCrewComposition
+            && numberBoxesWithProvisions > minimalNumberBoxesWithProvisions) {
             "Корабль может приступить к долгосрочному плаванию"
 
-        } else if (caseDamage && crewComposition == 70 && numberBoxesWithProvisions > 50 && favorableWeather) {
+        } else if (caseDamage && crewComposition == recommendedCrewComposition && numberBoxesWithProvisions > minimalNumberBoxesWithProvisions
+            && favorableWeather) {
             "Корабль может отплыть"
 
         } else "Корабль не может отплыть и приступить к долгосрочному плаванию")
 
 }
+
+const val recommendedCrewComposition = 70
+const val minimalCrewComposition =  55
+const val minimalNumberBoxesWithProvisions = 50
