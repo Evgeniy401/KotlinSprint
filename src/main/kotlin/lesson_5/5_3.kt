@@ -8,8 +8,8 @@ fun main() {
     println("Введите чмсло 2")
     val currentNumber2 = readln().toInt()
 
-    val correctNumber1 = 20
-    val correctNumber2 = 11
+    val correctNumber1 = (0..42).random()
+    val correctNumber2 = (0..42).random()
 
     println(
     if (currentNumber1 == correctNumber1 && currentNumber2 == correctNumber2
