@@ -11,11 +11,7 @@ fun main() {
     println("Введите чмсло 2")
     val currentNumber3 = readln().toInt()
 
-    val correctNumber1 = (0..42).random()
-    val correctNumber2 = (0..42).random()
-    val correctNumber3 = (0..42).random()
-
-    val correctNumbers = listOf(correctNumber1, correctNumber2, correctNumber3)
+    val correctNumbers = List(3) { (0..42).random() }
     val currentNumbers = listOf(currentNumber1, currentNumber2, currentNumber3)
 
     val comparison = correctNumbers.intersect(currentNumbers)
@@ -30,6 +26,6 @@ fun main() {
         }
     )
 
-    println("А правильные числа были: $correctNumber1, $correctNumber2 и $correctNumber3")
+    println("А правильные числа были: ${correctNumbers[0]}, ${correctNumbers[1]} и ${correctNumbers[2]}")
 
 }
