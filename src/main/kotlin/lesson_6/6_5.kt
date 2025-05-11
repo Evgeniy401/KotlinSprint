@@ -3,9 +3,8 @@ package lesson_6
 fun main() {
 
     println("Проверка на бота\n")
-    var tryNumber = 3
 
-    while (tryNumber > 0) {
+    for (i in 3 downTo 1) {
         val (num1, num2) = List(2) { (1..9).random() }
         val correctAnswer = num1 + num2
 
@@ -16,13 +15,18 @@ fun main() {
             println("Добро пожаловать!")
             break
 
-        } else if (tryNumber == 1) {
+        } else if (i == 1) {
             println("Ответ неверный!\nДоступ запрещен!")
             break
 
         } else {
             println("Ответ неверный!")
-            tryNumber--
         }
     }
 }
+
+
+
+
+
+
