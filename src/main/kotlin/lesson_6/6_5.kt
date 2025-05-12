@@ -5,7 +5,8 @@ fun main() {
     println("Проверка на бота\n")
 
     for (i in 3 downTo 1) {
-        val (num1, num2) = List(2) { (1..9).random() }
+        val num1 = (1..9).random()
+        val num2 = (1..9).random()
         val correctAnswer = num1 + num2
 
         println("Решите пример: $num1 + $num2")
@@ -24,9 +25,3 @@ fun main() {
         }
     }
 }
-
-
-
-
-
-
