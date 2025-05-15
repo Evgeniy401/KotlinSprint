@@ -2,9 +2,16 @@ package org.example.lesson_7
 
 fun main() {
 
-    val (num1, num3, num5) = List(3) { (1..9).random() }
-    val (num2, num4, num6) = List(3) { ('a'..'z').random() }
+    var password = ""
 
-    println("$num1$num2$num3$num4$num5$num6")
+    for (i in 1..6) {
+        val symbol = when (i) {
+            1, 3, 5 -> (1..9).random().toString()
+            2, 4, 6 -> ('a'..'z').random().toString()
+            else -> ""
+        }
+        password += symbol
+    }
 
+    println(password)
 }
