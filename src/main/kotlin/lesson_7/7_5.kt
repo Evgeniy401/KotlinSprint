@@ -6,23 +6,28 @@ fun main() {
     val charsCapitals = 'A'..'Z'
     val digits = '0'..'9'
 
-    val variant = arrayOf(chars, charsCapitals, digits)
-    var password = ""
-    var sizePassword: Int
+    val allVariants = (chars + charsCapitals + digits)
+    val password: MutableList<Char> = mutableListOf()
 
-    do {
-        println("Введите размер пароля:")
-        sizePassword = readln().toInt()
+    println("Введите размер пароля:")
+    var sizePassword = readln().toInt()
 
-        if (sizePassword < 6) {
-            println("Пароль должен содержать не менее шести символов")
-        } else {
-            repeat(sizePassword) {
-                val randomArray = variant.random()
-                val randomChar = randomArray.random()
-                password += randomChar
-            }
-            println("Ваш пароль: $password")
-        }
-    } while (sizePassword < 6)
+    if (sizePassword < 6) {
+        sizePassword = MINIMAL_SIZE
+    }
+
+    password.add(chars.random())
+    password.add(charsCapitals.random())
+    password.add(digits.random())
+
+    while (password.size < sizePassword) {
+        password.add(allVariants.random())
+    }
+
+    password.shuffle()
+    val result = password.joinToString("")
+    println("Ваш пароль: $result")
+
 }
+
+const val MINIMAL_SIZE = 6
