@@ -7,18 +7,14 @@ fun main() {
 
     println("Какой ингридиент вы хотите найти ?")
     val searchElement = readln()
-    var result = false
 
     for (ingredient in ingredients) {
         if (ingredient == searchElement) {
-            result = true
-            break
+            println("Ингредиент $searchElement в рецепте есть!")
+            return
         }
     }
 
-    if (result) {
-        println("Ингредиент $searchElement в рецепте есть!")
-    } else {
-        println("Ингредиента $searchElement в рецепте нет.")
-    }
+    println("Ингредиента $searchElement в рецепте нет.")
+
 }
