@@ -10,18 +10,17 @@ fun main() {
         println("Введите пароль:")
         val inputPassword = readln()
 
-        isAuthorizationSuccessful = validateInput(inputLogin, inputPassword, MIN_LENGTH)
+        isAuthorizationSuccessful = validateInput(inputLogin) && validateInput(inputPassword)
+        if (!isAuthorizationSuccessful) {
+            println("Ошибка! Логин или пароль содержат менее $MIN_LENGTH символов")
+        } else {
+            println("Успешная авторизация!")
+        }
     }
 }
 
-fun validateInput(inputLogin: String, inputPassword: String, minLength: Int): Boolean {
-    return if (inputLogin.length < minLength || inputPassword.length < minLength) {
-        println("Ошибка! Логин или пароль содержат менее $minLength символов")
-        false
-    } else {
-        println("Успешная авторизация!")
-        true
-    }
+fun validateInput(input: String): Boolean {
+    return input.length >= MIN_LENGTH
 }
 
 const val MIN_LENGTH = 4
