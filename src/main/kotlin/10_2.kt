@@ -1,7 +1,6 @@
 package org.example
 
 fun main() {
-
     var isAuthorizationSuccessful = false
 
     while (!isAuthorizationSuccessful) {
@@ -11,14 +10,13 @@ fun main() {
         println("Введите пароль:")
         val inputPassword = readln()
 
-        isAuthorizationSuccessful = validateInput(inputLogin, inputPassword)
+        isAuthorizationSuccessful = validateInput(inputLogin, inputPassword, MIN_LENGTH)
     }
 }
 
-fun validateInput(inputLogin: String, inputPassword: String): Boolean {
-
-    return if (inputLogin.length < MIN_LENGTH || inputPassword.length < MIN_LENGTH) {
-        println("Ошибка! Логин или пароль содержат менее четырех символов")
+fun validateInput(inputLogin: String, inputPassword: String, minLength: Int): Boolean {
+    return if (inputLogin.length < minLength || inputPassword.length < minLength) {
+        println("Ошибка! Логин или пароль содержат менее $minLength символов")
         false
     } else {
         println("Успешная авторизация!")
