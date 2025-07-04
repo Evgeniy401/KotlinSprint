@@ -27,19 +27,14 @@ class Forum {
         for (member in membersOfForum) {
             if (member.userId == authorId) {
                 messages.add(MessageForum(authorId, messageText))
+                return
             }
         }
     }
 
     fun printThread() {
         for (message in messages) {
-            var authorName = ""
-            for (member in membersOfForum) {
-                if (member.userId == message.authorId) {
-                    authorName = member.userName
-                    break
-                }
-            }
+            val authorName = membersOfForum.find { it.userId == message.authorId }?.userName ?: ""
             println("$authorName: ${message.message}")
         }
     }
