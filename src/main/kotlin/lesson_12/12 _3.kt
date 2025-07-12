@@ -11,8 +11,8 @@ class Weather3(
     precipitation: Double,
 ) {
 
-    val dayTemperatureCelsius = dayTemperatureKelvin - 273
-    val nightTemperatureCelsius = nightTemperatureKelvin - 273
+    val dayTemperatureCelsius = dayTemperatureKelvin - DIFFERENCE
+    val nightTemperatureCelsius = nightTemperatureKelvin - DIFFERENCE
     val precipitation: Double = precipitation
 
     fun printWeather3() {
@@ -22,3 +22,5 @@ class Weather3(
         println()
     }
 }
+
+const val DIFFERENCE = 273
