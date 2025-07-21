@@ -12,10 +12,9 @@ class Subscriber2(
     val name: String,
     val phoneNumber: Long,
     val company: String? = null,
-    val dataCompany: String = company ?: "не указано"
 ) {
 
     fun printData() {
-       return println("Имя: $name, Номер телефона: $phoneNumber, Компания: $dataCompany")
+        return println("Имя: $name, Номер телефона: $phoneNumber, Компания: ${company ?: "не указано"}")
     }
 }
