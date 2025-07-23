@@ -10,7 +10,7 @@ fun main() {
         Subscriber3("Даниил", 89209541257),
     )
 
-    val companies: List<String> = contacts.mapNotNull { it.company }
+    val companies: List<String> = contacts.mapNotNull { it.company }.distinct()
     print(companies)
 }
 
