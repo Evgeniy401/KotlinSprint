@@ -16,7 +16,20 @@ fun main() {
     if (phoneNumber == null) {
         println("$name, вы не указали номер телефона")
     } else {
-        val user1 = Subscriber4(name, phoneNumber, company)
+
+        val userContacts: MutableList<Long?> = mutableListOf()
+
+        do {
+            println("добавить еще контакт? (Если да - введите номер, если нет - нажмите Enter)")
+            val additionalContact = readln().toLongOrNull()
+
+            if (additionalContact != null) {
+                userContacts.add(additionalContact)
+            }
+        } while (additionalContact != null)
+
+        userContacts.add(phoneNumber)
+        val user1 = Subscriber4(name, userContacts, company)
         contacts.add(user1)
     }
 
@@ -25,7 +38,7 @@ fun main() {
 
 class Subscriber4(
     private val name: String,
-    private val phoneNumber: Long,
+    private val phoneNumber: MutableList<Long?>,
     private val company: String? = null,
 ) {
     fun printData() {
