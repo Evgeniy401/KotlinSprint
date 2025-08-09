@@ -4,41 +4,35 @@ fun main() {
 
     val contacts: MutableList<Subscriber4> = mutableListOf()
 
-    println("Введите ваше имя:")
-    val name = readln()
+    do {
 
-    println("Введите ваш номер телефона:")
-    val phoneNumber = readln().toLongOrNull()
+        println("Введите имя:")
+        val name = readln()
 
-    println("Введите вашу компанию:")
-    val company = readln().takeIf { it.isNotBlank() }
+        println("Введите номер телефона:")
+        val phoneNumber = readln().toLongOrNull()
 
-    if (phoneNumber == null) {
-        println("$name, вы не указали номер телефона")
-    } else {
+        println("Введите компанию:")
+        val company = readln().takeIf { it.isNotBlank() }
 
-        val userContacts: MutableList<Long?> = mutableListOf()
+        if (phoneNumber == null) {
+            println("$name, вы не указали номер телефона")
+        } else {
+            val user1 = Subscriber4(name, phoneNumber, company)
+            contacts.add(user1)
+        }
 
-        do {
-            println("добавить еще контакт? (Если да - введите номер, если нет - нажмите Enter)")
-            val additionalContact = readln().toLongOrNull()
+        println("добавить еще контакт? (Введите \"да\" или \"нет\")")
+        val additionalContact = readln()
 
-            if (additionalContact != null) {
-                userContacts.add(additionalContact)
-            }
-        } while (additionalContact != null)
-
-        userContacts.add(phoneNumber)
-        val user1 = Subscriber4(name, userContacts, company)
-        contacts.add(user1)
-    }
+    } while (additionalContact == "да")
 
     contacts.forEach { it.printData() }
 }
 
 class Subscriber4(
     private val name: String,
-    private val phoneNumber: MutableList<Long?>,
+    private val phoneNumber: Long,
     private val company: String? = null,
 ) {
     fun printData() {
